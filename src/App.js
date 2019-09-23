@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './Graph';
+import Graph from './Graph';
+
+class App extends Component {
+
+  state = {
+    stateFilter: 1
+  };
+
+  handleSet1Button = () => {
+    this.setState({ stateFilter: 1 });
+  }
+
+  handleSet2Button = () => {
+    this.setState({ stateFilter: 2 });
+  }
+
+  handleBothSetButton = () => {
+    this.setState({ stateFilter: null });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Graph stateFilter={this.state.stateFilter}></Graph>
+        <div className='button-container'>
+          <button onClick={this.handleSet1Button}>SET 1</button>
+          <button onClick={this.handleSet2Button}>SET 2</button>
+          <button onClick={this.handleBothSetButton}>SET 1 & 2</button>
+        </div>
+      </div >
+    );
+  }
 }
+
 
 export default App;

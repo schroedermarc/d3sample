@@ -1,0 +1,17 @@
+.App {
+  text-align: left;
+}
+
+.button-container {
+  width: 700px;
+  height: 100px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  width: 25%;
+  height: 40px;
+}
